@@ -32,8 +32,22 @@ class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   @override
+
   Widget build(BuildContext context) => const MaterialApp(
         debugShowCheckedModeBanner: false,
         home: HomePage(),
       );
+=======
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'freeudcdcdcscdcdscdscdscdscsp',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      
+      ),
+      
+     
+    );
+  }
+
 }
