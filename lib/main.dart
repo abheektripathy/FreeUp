@@ -1,26 +1,9 @@
-// import 'package:flutter/material.dart';
-
-// void main() {
-//   runApp(const MyApp());
-// }
-
-// class MyApp extends StatelessWidget {
-//   const MyApp({Key? key}) : super(key: key);
-
-//   // This widget is the root of your application.
-//   @override
-//   Widget build(BuildContext context) {
-//     return MaterialApp(
-//       home: Material(
-//         child: Container(
-//           child: const Text('Hello World'),
-//         ),
-//       ),
-//     );
-//   }
-// }
-
 import 'package:flutter/material.dart';
+import 'package:freeup/screens/homescreen.dart';
+import 'package:freeup/screens/journal.dart';
+import 'package:freeup/screens/signupscreen.dart';
+import 'package:freeup/screens/splashscreen.dart';
+import 'package:freeup/widgets/ChannelListPage.dart';
 import 'package:stream_chat_flutter/stream_chat_flutter.dart';
 
 void main() async {
@@ -57,75 +40,14 @@ class MyApp extends StatelessWidget {
         child: child,
       ),
       home: const ChannelListPage(),
-    );
-  }
-}
-
-class ChannelListPage extends StatefulWidget {
-  const ChannelListPage({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  State<ChannelListPage> createState() => _ChannelListPageState();
-}
-
-class _ChannelListPageState extends State<ChannelListPage> {
-  late final _listController = StreamChannelListController(
-    client: StreamChat.of(context).client,
-    filter: Filter.in_(
-      'members',
-      [StreamChat.of(context).currentUser!.id],
-    ),
-    sort: const [SortOption('last_message_at')],
-    limit: 20,
-  );
-
-  @override
-  void dispose() {
-    _listController.dispose();
-    super.dispose();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: StreamChannelListView(
-        controller: _listController,
-        onChannelTap: (channel) {
-          Navigator.of(context).push(
-            MaterialPageRoute(
-              builder: (context) {
-                return StreamChannel(
-                  channel: channel,
-                  child: const ChannelPage(),
-                );
-              },
-            ),
-          );
-        },
-      ),
-    );
-  }
-}
-
-class ChannelPage extends StatelessWidget {
-  const ChannelPage({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: const StreamChannelHeader(),
-      body: Column(
-        children: const <Widget>[
-          Expanded(
-            child: StreamMessageListView(),
-          ),
-          StreamMessageInput(),
-        ],
-      ),
+      initialRoute: "/splash",
+      routes: {
+        "/signup": (context) => signUp(),
+        '/home': (context) => name(),
+        '/chat': (context) => ChannelListPage(),
+        '/note': (context) => MyWidget(),
+        '/splash': (context) => Splash(),
+      },
     );
   }
 }
