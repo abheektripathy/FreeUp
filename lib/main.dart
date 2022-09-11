@@ -11,14 +11,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'freeup',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      
+      home: Material(
+        child: Container(
+          child: const Text('Hello World'),
+        ),
       ),
-      
-     
     );
   }
 }
-
