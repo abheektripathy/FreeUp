@@ -35,9 +35,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+
       builder: (context, child) => StreamChat(
         client: client,
         child: child,
+
       ),
       home: const ChannelListPage(),
       initialRoute: "/splash",
