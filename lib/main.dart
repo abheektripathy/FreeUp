@@ -11,10 +11,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Material(
-        child: Container(
-          child: const Text('Hello World'),
-        ),
+      home: Container(
+        child: Text('Hello World'),
       ),
     );
   }
