@@ -4,8 +4,6 @@ import 'package:animated_splash_screen/animated_splash_screen.dart';
 
 import 'homescreen.dart';
 
-
-
 class Splash extends StatefulWidget {
   const Splash({super.key});
 
@@ -31,7 +29,7 @@ class _SplashState extends State<Splash> {
     return Scaffold(
         body: Container(
       //
-      child: Image.asset('assets\\images\\Freeup1.png'),
+      child: Image.asset('assets/images/freeUp.png'),
       //
       alignment: Alignment.center,
       padding: const EdgeInsets.all(32),
